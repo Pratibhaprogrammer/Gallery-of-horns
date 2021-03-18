@@ -1,34 +1,39 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button' 
+import Button from 'react-bootstrap/Button'
 
 
 class HornedBeasts extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       timesClicked: 0
     }
   }
-  clickPic =() => {
-    this.setState({timesClicked: this.state.timesClicked + 1});
+  clickPic = () => {
+    this.setState({ timesClicked: this.state.timesClicked + 1 });
+  }
+   popOut = () => {
+    this.props.displayAsModal(this.props.index);
   }
 
+
   render() {
-    // console.log('props of the square:', this.props);
-    return(
-      <Card style={{ width: '18rem' }}>
-      <Card.Img src={this.props.src}/>
-      <Card.Body>
-        <Card.Title>{this.props.title}</Card.Title>
-        <Card.Text>
-          {this.props.description}
-        </Card.Text>
-        💜 <Button onClick={this.clickPic} variant="light">Vote!</Button> 
-        <p>{this.state.timesClicked}</p>
-      </Card.Body>
-    </Card>
+    
+    return (
+      <Card style={{ width: '18rem' }} bg = 'danger' text = 'info' >
+        <Card.Img
+          onClick={this.popOut} src={this.props.src} />
+        <Card.Body onClick={this.clickPic}>
+          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Text>
+            {this.props.description}
+          </Card.Text>
+        💜 <Button  variant="light">Vote!</Button>
+          <p>{this.state.timesClicked}</p>
+        </Card.Body>
+      </Card>
     )
   }
 }
