@@ -8,7 +8,7 @@ class SelectedBeast extends React.Component{
       <>
         <Modal show={this.props.show} onHide={this.props.handleClose}>
           <Modal.Dialog>
-            <Modal.Body> <img src = {this.props.favoriteBeast.image_url} width ={450}/> </Modal.Body>
+            <Modal.Body> <img src = {this.props.favoriteBeast.image_url} alt = {''}width ={450}/> </Modal.Body>
           </Modal.Dialog>
         </Modal>
       </>

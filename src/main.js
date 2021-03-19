@@ -8,7 +8,7 @@ import HornedBeasts from './horned-beasts';
 class Main extends React.Component {
   
   render() {
-    console.log(this.props.beast)
+    // console.log(this.props.beast)
     return (
       <CardColumns>
       <div className = 'beast-container'>

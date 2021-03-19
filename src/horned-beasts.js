@@ -8,21 +8,22 @@ class HornedBeasts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      timesClicked: 0
+      timesClicked: 0,
     }
   }
   clickPic = () => {
     this.setState({ timesClicked: this.state.timesClicked + 1 });
   }
-   popOut = () => {
+  popOut = () => {
     this.props.displayAsModal(this.props.index);
   }
 
 
+
   render() {
-    
+
     return (
-      <Card style={{ width: '18rem' }} bg = 'danger' text = 'info' >
+      <Card style={{ width: '18rem' }} bg='danger' text='info' >
         <Card.Img
           onClick={this.popOut} src={this.props.src} />
         <Card.Body onClick={this.clickPic}>
@@ -30,7 +31,10 @@ class HornedBeasts extends React.Component {
           <Card.Text>
             {this.props.description}
           </Card.Text>
-        💜 <Button  variant="light">Vote!</Button>
+          <Card.Text>
+            Number of Horns: {this.props.horns}
+          </Card.Text>
+        💜 <Button variant="light">Vote!</Button>
           <p>{this.state.timesClicked}</p>
         </Card.Body>
       </Card>
